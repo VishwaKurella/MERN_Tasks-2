@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+        .registration-box {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1c75a4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-box">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="table">
+                <tr>
+                <th><label for="firstName">First Name:</label></th>
+                <th><input type="text" id="firstName" name="firstName">
+                <span class="error" id="firstNameError"></span></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <th><label for="lastName">Last Name:</label></th>
+                <th><input type="text" id="lastName" name="lastName">
+                <span class="error" id="lastNameError"></span></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <th><label for="email">Email:</label></th>
+                <th><input type="email" id="email" name="email">
+                <span class="error" id="emailError"></span></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <th><label for="password">Password:</label></th>
+                <th><input type="password" id="password" name="password">
+                <span class="error" id="passwordError"></span></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <th><label for="reenterPassword">Re-enter Password:</label></th>
+                <th><input type="password" id="reenterPassword" name="reenterPassword">
+                <span class="error" id="reenterPasswordError"></span></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <th><label>Gender:</label></th>
+                <th><input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label></th>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age">
+                <span class="error" id="ageError"></span>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber">
+                <span class="error" id="phoneNumberError"></span>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address">
+                <span class="error" id="addressError"></span>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state">
+                <span class="error" id="stateError"></span>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="France">France</option>
+                    <option value="Russia">Russia</option>
+                </select>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <label>Language Known:</label><br>
+                <input type="checkbox" id="english" name="languages" value="English">
+                <label for="english">English</label>
+                <input type="checkbox" id="Telugu" name="languages" value="Telugu">
+                <label for="Telugu">Telugu</label>
+                <input type="checkbox" id="Kannada" name="languages" value="Kannada">
+                <label for="Kannada">Kannada</label>
+                <input type="checkbox" id="Tamil" name="languages" value="Tamil">
+                <label for="Tamil">Tamil</label>
+                <input type="checkbox" id="malayalam" name="languages" value="malayalam">
+                <label for="malayalam">malayalam</label>
+                </tr>
+            </div>
+            <br>
+            <div class="table">
+                <tr>
+                <input type="checkbox" id="declaration" name="declaration">
+                <label for="declaration">Hereby I declare all the given details are true</label>
+                </tr>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="">Login to our Website</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="button" id="registerButton">Register</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const registrationForm = document.getElementById("registrationForm");
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const reenterPassword = document.getElementById("reenterPassword");
+        const age = document.getElementById("age");
+        const phoneNumber = document.getElementById("phoneNumber");
+        const address = document.getElementById("address");
+        const state = document.getElementById("state");
+        const declaration = document.getElementById("declaration");
+
+        const firstNameError = document.getElementById("firstNameError");
+        const lastNameError = document.getElementById("lastNameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const reenterPasswordError = document.getElementById("reenterPasswordError");
+        const ageError = document.getElementById("ageError");
+        const phoneNumberError = document.getElementById("phoneNumberError");
+        const addressError = document.getElementById("addressError");
+        const stateError = document.getElementById("stateError");
+        document.getElementById("registerButton").addEventListener("click", function (event){
+            let valid = true;
+
+            if (firstName.value === "") {
+                firstNameError.textContent = "POOR";
+                valid = false;
+            } else {
+                firstNameError.textContent = "";
+            }
+
+            if (lastName.value === "") {
+                lastNameError.textContent = "POOR";
+                valid = false;
+            } else {
+                lastNameError.textContent = "";
+            }
+
+            if (email.value === "") {
+                emailError.textContent = "POOR";
+                valid = false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            if (password.value === "") {
+                passwordError.textContent = "POOR";
+                valid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            if (password.value !== reenterPassword.value) {
+                reenterPasswordError.textContent = "POOR or mismatch";
+                valid = false;
+            } else {
+                reenterPasswordError.textContent = "";
+            }
+
+            if (age.value === "") {
+                ageError.textContent = "POOR";
+                valid = false;
+            } else {
+                ageError.textContent = "";
+            }
+
+            if (phoneNumber.value === "") {
+                phoneNumberError.textContent = "POOR";
+                valid = false;
+            } else {
+                phoneNumberError.textContent = "";
+            }
+
+            if (address.value === "") {
+                addressError.textContent = "POOR";
+                valid = false;
+            } else {
+                addressError.textContent = "";
+            }
+
+            if (state.value === "") {
+                stateError.textContent = "POOR";
+                valid = false;
+            } else {
+                stateError.textContent = "";
+            }
+
+            if (!declaration.checked) {
+                alert("Please accept the declaration.");
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

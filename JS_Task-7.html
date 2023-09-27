@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #train-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        #train {
+            position: absolute;
+            top: 0;
+            left: 0; 
+            transition: left 5s linear;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Train Animation</h1>
+    <div id="train-container">
+        <img id="train" src="https://cdn4.vectorstock.com/i/1000x1000/52/08/toy-train-sketch-icon-vector-9185208.jpg" alt="Train" width="200" height="200">
+    </div>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        const train = document.getElementById("train");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        let isMoving = false;
+        let animationInterval;
+
+        startButton.addEventListener("click", () => {
+            if (!isMoving) {
+                isMoving = true;
+                train.style.left = "100%"; 
+                train.style.transition = "left 5s linear"; 
+                animationInterval = setInterval(() => {
+                    train.style.left = "-150px"; 
+                    setTimeout(() => {
+                        train.style.transition = "none"; 
+                        train.style.left = "100%"; 
+                        setTimeout(() => {
+                            train.style.transition = "left 5s linear";
+                        }, 50);
+                    }, 5000);
+                }, 10000);
+            }
+        });
+
+        stopButton.addEventListener("click", () => {
+            if (isMoving) {
+                isMoving = false;
+                clearInterval(animationInterval);
+                train.style.transition = "none";
+                const currentPosition = getComputedStyle(train).left;
+                train.style.left = currentPosition;
+            }
+        });
+    </script>
+</body>
+</html>
